@@ -39,7 +39,7 @@ const app = {
         })
         .catch((err) => {
           alert(err.data.message);
-          location.href = "/login.html";
+          location.href = "/";
         });
     },
   },
@@ -53,5 +53,4 @@ const app = {
     this.check();
   },
 };
-
 createApp(app).mount("#app");
