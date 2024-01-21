@@ -130,7 +130,7 @@ const app = {
         })
         .catch((err) => {
           alert(err.data.message);
-          location.href = "/";
+          location.href = "index.html";
         });
     },
   },

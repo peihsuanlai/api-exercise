@@ -14,7 +14,7 @@ const app = {
       axios
         .get(`${this.url}/api/${this.path}/admin/products`)
         .then((res) => {
-          console.log(res.data.products);
+          //console.log(res.data.products);
           this.products = res.data.products;
         })
         .catch((err) => {
@@ -39,7 +39,7 @@ const app = {
         })
         .catch((err) => {
           alert(err.data.message);
-          location.href = "/";
+          location.href = "index.html";
         });
     },
   },

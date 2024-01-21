@@ -16,11 +16,11 @@ const app = {
       axios
         .post(`${this.url}/admin/signin`, this.user)
         .then((res) => {
-          console.log(res.data);
+         // console.log(res.data);
           const { token, expired } = res.data;
-          console.log(token);
+          //console.log(token);
           document.cookie = `myToken=${token}; expires=${new Date(expired)};`;
-          location.href = "productList.html";
+          location.href = "productlist.html";
         })
         .catch((err) => {
           alert(err.data.message);
