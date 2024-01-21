@@ -7,7 +7,6 @@ const app = {
       temp: {},
       url: "https://vue3-course-api.hexschool.io/v2",
       path: "product-api",
-      length: 0,
     };
   },
   methods: {
@@ -15,6 +14,7 @@ const app = {
       axios
         .get(`${this.url}/api/${this.path}/admin/products`)
         .then((res) => {
+          console.log(res.data.products);
           this.products = res.data.products;
         })
         .catch((err) => {
