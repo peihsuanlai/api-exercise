@@ -20,7 +20,7 @@ const app = {
           const { token, expired } = res.data;
           console.log(token);
           document.cookie = `myToken=${token}; expires=${new Date(expired)};`;
-          location.href = "/productList.html";
+          location.href = "productList.html";
         })
         .catch((err) => {
           alert(err.data.message);
