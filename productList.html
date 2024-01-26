@@ -55,7 +55,7 @@
                   <button type="button" class="btn btn-outline-primary btn-sm" @click="openModal('productModal',false, item)">
                     編輯
                   </button>
-                  <button type="button" class="btn btn-outline-danger btn-sm" @click="openModal('deleteModal')">
+                  <button type="button" class="btn btn-outline-danger btn-sm" @click="openModal('deleteModal',null, item)">
                     刪除
                   </button>
                 </div>
@@ -71,7 +71,8 @@
           <div class="modal-content border-0">
             <div class="modal-header bg-dark text-white">
               <h5 id="productModalLabel" class="modal-title">
-                <span>新增產品</span>
+                <span v-if="isNew">新增產品</span>
+                <span v-else>編輯產品</span>
               </h5>
               <button type="button" class="btn-close" aria-label="Close" @click="hideModal('productModal')"></button>
             </div>
@@ -206,13 +207,13 @@
             </div>
             <div class="modal-body">
               是否刪除
-              <strong class="text-danger"></strong> 商品(刪除後將無法恢復)。
+              <strong class="text-danger">{{tempProduct.title}}</strong> 商品(刪除後將無法恢復)。
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-outline-secondary" @click="hideModal('deleteModal')">
                 取消
               </button>
-              <button type="button" class="btn btn-danger" @click="deleteData(item)">
+              <button type="button" class="btn btn-danger" @click="deleteData">
                 確認刪除
               </button>
             </div>

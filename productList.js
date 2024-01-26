@@ -33,6 +33,7 @@ const app = {
         this.isNew = isNew;
         this.modal1.show();
       } else if (modalName == "deleteModal") {
+        this.tempProduct = { ...item };
         this.modal2.show();
       }
     },
@@ -54,6 +55,7 @@ const app = {
       }
       axios[http](url, { data: this.tempProduct })
         .then((res) => {
+          alert(res.data.message);
           this.hideModal("productModal");
           this.getProducts();
         })
@@ -92,19 +94,17 @@ const app = {
       //     });
       // }
     },
-    deleteData(item){
-      this.tempProduct=item;
+    deleteData(){
       axios
         .delete(`${this.url}/api/${this.path}/admin/product/${this.tempProduct.id}`)
         .then((res) => {
-          this.hideModel("deleteModal");
-          this.getProducts;
-
+          alert(res.data.message);
+          this.hideModal("deleteModal");
+          this.getProducts();
         })
         .catch((err) => {
           alert(err.data.message);
         });
-
     },
     uploadFile() {
       const uploadedFile = this.$refs.fileInput.files[0];
